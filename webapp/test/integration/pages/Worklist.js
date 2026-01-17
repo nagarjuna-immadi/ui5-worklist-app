@@ -265,6 +265,23 @@ sap.ui.define([
 						"Table has no entries which can be checked for their formatting");
 				},
 
+				iShouldSeeTheWorklistTableBusyIndicator : function () {
+					return this.waitFor({
+						id : "table",
+						viewName : sViewName,
+						matchers : new PropertyStrictEquals({
+							name : "busy",
+							value: true
+						}),
+						autoWait : false,
+						pollingInterval: 100,
+						success : function () {
+							Opa5.assert.ok(true, "The worklist table is busy");
+						},
+						errorMessage : "The worklist table is not busy"
+					});
+				},
+
 				iShouldSeeTheNoDataTextForNoSearchResults : function () {
 					return this.waitFor({
 						id : sTableId,
