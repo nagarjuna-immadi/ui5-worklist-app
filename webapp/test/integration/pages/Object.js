@@ -62,32 +62,6 @@ sap.ui.define([
 					});
 				},
 
-				theViewIsNotBusyAnymore : function () {
-					return this.waitFor({
-						id : "page",
-						viewName : sViewName,
-						matchers : function (oPage) {
-							return !oPage.getBusy();
-						},
-						autoWait: false,
-						success : function (oPage) {
-							Opa5.assert.ok(!oPage.getBusy(), "The object view is not busy");
-						},
-						errorMessage : "The object view is busy"
-					});
-				},
-
-				theObjectViewsBusyIndicatorDelayIsZero : function () {
-					return this.waitFor({
-						id : "page",
-						viewName : sViewName,
-						success : function (oPage) {
-							Opa5.assert.strictEqual(oPage.getBusyIndicatorDelay(), 0, "The object view's busy indicator delay is zero.");
-						},
-						errorMessage : "The object view's busy indicator delay is not zero."
-					});
-				},
-
 				theObjectViewsBusyIndicatorDelayIsRestored : function () {
 					return this.waitFor({
 						id : "page",
